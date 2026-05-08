@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | VERSE</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar dark-nav">
+        <div class="logo"><a href="index.html">VERSE</a></div>
+        <ul class="nav-links">
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="pt-large">
+        <section class="container" style="max-width: 900px; margin: 0 auto;">
+            <div class="reveal">
+                <span class="eyebrow">Connect</span>
+                <h2 style="font-size: 3.5rem; margin-bottom: 1rem;">Let's talk.</h2>
+                <p style="color: #666; margin-bottom: 4rem;">For events, catering, or just to say hello.</p>
+                
+                <form id="contact-form" class="contact-form">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" id="send-btn">Send Inquiry</button>
+                    <p id="form-status" style="margin-top: 2rem; font-size: 0.8rem; letter-spacing: 0.05em;"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer style="margin-top: 5rem;">
+        <h2 class="massive-logo">VERSE</h2>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

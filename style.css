@@ -1,0 +1,155 @@
+/* --- 1. RESET & CORE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none; /* Kills all blue underlines globally */
+    list-style: none;
+}
+
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --gray: #707070;
+    --soft-white: #fafafa;
+    --font-main: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+body {
+    background-color: var(--white);
+    color: var(--black);
+    font-family: var(--font-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- 2. THE NAV (THE "FLIP") --- */
+.navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 5%;
+    z-index: 9999;
+    transition: var(--transition);
+}
+
+/* Default Logo/Links Color (White for Hero) */
+.logo a, .nav-links a {
+    color: var(--white);
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.logo a { font-size: 1.3rem; letter-spacing: 0.4em; }
+
+/* The Scrolled State & Dark Nav (Black for white backgrounds) */
+.navbar.scrolled, .dark-nav {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1.2rem 5%;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar.scrolled .logo a, .navbar.scrolled .nav-links a,
+.dark-nav .logo a, .dark-nav .nav-links a {
+    color: var(--black);
+}
+
+.nav-links { display: flex; gap: 3rem; }
+.nav-links a:hover { opacity: 0.5; }
+
+/* --- 3. TYPOGRAPHY --- */
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.1; }
+.eyebrow { 
+    display: block; 
+    text-transform: uppercase; 
+    font-size: 0.7rem; 
+    letter-spacing: 0.3em; 
+    color: var(--gray); 
+    margin-bottom: 1rem; 
+}
+
+/* --- 4. LAYOUT COMPONENTS --- */
+.container { padding: 10rem 5%; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+
+/* Menu Cards */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.menu-card { background: var(--soft-white); padding: 1rem; }
+.menu-img-wrapper { 
+    width: 100%; 
+    aspect-ratio: 4/5; 
+    overflow: hidden; 
+    margin-bottom: 1.5rem; 
+}
+.menu-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+.menu-card:hover img { transform: scale(1.05); }
+
+.menu-info { display: flex; justify-content: space-between; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.menu-desc { font-size: 0.85rem; color: var(--gray); }
+
+/* --- 5. CONTACT FORM --- */
+.contact-form { max-width: 600px; margin-top: 4rem; }
+.input-group { margin-bottom: 2.5rem; border-bottom: 1px solid #ddd; }
+.input-group input, .input-group textarea {
+    width: 100%; padding: 1rem 0; border: none; outline: none;
+    font-family: inherit; font-size: 1rem; background: transparent;
+}
+.input-group input:focus { border-bottom: 1px solid var(--black); }
+
+/* --- 6. FOOTER --- */
+footer { background: var(--soft-white); padding: 6rem 5% 2rem; border-top: 1px solid #eee; }
+.massive-logo { 
+    font-size: 22vw; 
+    text-align: center; 
+    line-height: 0.8; 
+    color: black; 
+    pointer-events: none;
+    margin-top: 4rem;
+}
+
+/* --- 7. UTILS & ANIMATIONS --- */
+.btn { 
+    display: inline-block; padding: 1.2rem 2.5rem; 
+    background: var(--black); color: var(--white); 
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; 
+    transition: var(--transition);
+}
+.btn:hover { background: #333; transform: translateY(-3px); }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+}
+
+/* Add this below your main styles */
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr; /* One column, stacked. Simple. */
+        gap: 2rem;
+    }
+    
+    .container {
+        padding: 4rem 5%; /* Tighten the air for smaller screens */
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto; /* It scales. It breathes. It fits. */
+}
